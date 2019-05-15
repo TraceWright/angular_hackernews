@@ -1,0 +1,25 @@
+<div>
+  <div class="app-bar">
+    <div class="search-bar">
+      <search-bar
+        [(searchString)]="searchString"
+        [type]="type"
+      ></search-bar>
+    </div>
+    <div class="type-options">
+      <select 
+        ng-model="string"
+        (change)="onChangeType($event.target.value)"
+      >
+        <option *ngFor="let item of options" [value]='item.value' [selected]="item.value === type">{{ item.name }}</option>
+      </select>
+    </div>
+  </div>
+  <div class="search-search-results">
+    <search-results
+      [searchResults]="searchResults"
+      [searchString]="searchString"
+      [type]="type"
+    ></search-results>
+  </div>
+</div>

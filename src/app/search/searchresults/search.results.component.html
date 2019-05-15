@@ -1,0 +1,22 @@
+<div class="search-result-items" *ngFor="let item of searchResults.hits">
+  <div>
+    <div *ngIf="item.title">{{item.title}}</div>
+    <div *ngIf="item.story_title && !item.title">{{item.story_title}}</div>
+    <div *ngIf="item.story_text && !item.title">{{item.story_text}}</div>
+  </div>
+    <div class="search-result-details">
+    <div class="search-result-details-item">{{item.points}} points </div>
+    <div class="search-result-details-item">{{item.author}} </div>
+    <div *ngIf="item.url" style="display: inherit;">
+      <a class="search-result-details-item" [href]="item.url">{{ item.url }}</a> 
+    </div>
+  </div>
+</div>
+<div style="margin: 10px;">
+  <pagination
+    [currentPage]="searchResults.page"
+    [nbPages]="searchResults.nbPages"
+    [paginateFunction]="paginateFunction"
+    [searchString]="searchString"
+  ></pagination>
+</div>

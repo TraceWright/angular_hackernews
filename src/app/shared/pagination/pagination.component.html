@@ -1,0 +1,5 @@
+<div class="pagination" *ngIf="currentPage || currentPage === 0">
+  <button [disabled]="currentPage <= 0" (click)="prevPage(currentPage, searchString)">Prev</button>
+  <label class="page-nb">Page {{ currentPage + 1 }} of {{ nbPages }}</label>
+  <button [disabled]="currentPage >= nbPages - 1" (click)="nextPage(currentPage, searchString)">Next</button>
+</div>
